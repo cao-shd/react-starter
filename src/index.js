@@ -1,9 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// 创建DOM JSX语法
-const div = <div id="myDiv" title="this is a div">这是一个div元素</div>;
+import Hello from '@/components/Hello'
+const hello = {
+    title: 'Hello World',
+    value: 'Hi!'
+}
 // 渲染DOM
-ReactDOM.render(div, document.getElementById('app'));
+ReactDOM.render(
+    // 传递 props 参数
+    <Hello { ...hello }></Hello>,
+    // 挂载 DOM 对象
+    document.getElementById('app')
+);
 
 

@@ -29,6 +29,15 @@ module.exports = {
   // 配置模块
   module: {
     rules: [{ test: /\.js|jsx$/, use: 'babel-loader', exclude: /node_modules/ }]
+  },
+
+  resolve: {
+    // 省略 import 对象扩展名
+    extensions: ['.js', '.jsx', '.json'],
+    // 配置项目根路径用 @ 表示
+    alias: {
+      '@': path.join(__dirname, './src'),
+    }
   }
 }
 
