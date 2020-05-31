@@ -28,7 +28,24 @@ module.exports = {
   ],
   // 配置模块
   module: {
-    rules: [{ test: /\.js|jsx$/, use: 'babel-loader', exclude: /node_modules/ }]
+    rules: [
+      { test: /\.js|jsx$/, use: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+      { test: /\.ttf|.woff|.woff2|.eot|.svg$/, use: 'url-loader' },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: { localIdentName: '[local]-[hash:6]' },
+            }
+          },
+          'sass-loader'
+        ]
+      },
+    ]
   },
 
   resolve: {
